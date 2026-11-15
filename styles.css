@@ -11,9 +11,9 @@ a { color: inherit; text-decoration: none; }
 
 .hero { position: relative; height: 609px; }
 .hero > * { position: absolute; }
-.photo { left: 354px; top: 53px; width: 344px; height: 396px; object-fit: cover; }
+.photo { z-index: 2; left: 354px; top: 53px; width: 344px; height: 396px; object-fit: cover; }
 .ellipse { left: 413px; top: 311px; width: 241px; height: 215px; }
-.welcome, .name { font-family: Impact, 'Anton', sans-serif; font-weight: 400; font-size: 64px; color: #f2f2f2; white-space: nowrap; }
+.welcome, .name { z-index: 1; font-family: Impact, 'Anton', sans-serif; font-weight: 400; font-size: 64px; color: #f2f2f2; white-space: nowrap; }
 .welcome { left: 153px; top: 84px; }
 .name { left: 646px; top: 181px; }
 .hand { font-family: 'Caveat', cursive; font-weight: 700; font-size: 19px; line-height: 23px; color: #ececec; }
@@ -41,7 +41,7 @@ h2 { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 32px; 
 .links { display: flex; gap: 16px; }
 .links a { display: flex; }
 
-.cta { border-top: 1px dashed #2c2c2c; padding: 12px 20px 24px; margin-top: 4px; }
+.cta { border-top: 1px dashed #2c2c2c; padding: 12px 20px 24px; }
 .cta-body { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 56px 0 40px; }
 .cta-body p { font-size: 20px; font-weight: 500; color: #8e8e8e; }
 .btn { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #111; font-weight: 600; font-size: 17px; padding: 12px 48px; border-radius: 100px; box-shadow: 0 4px 14px rgba(0,0,0,.4); transition: transform .15s; }
@@ -60,3 +60,5 @@ h2 { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 32px; 
   .card { flex-direction: column; gap: 24px; }
   .card-img, .card-body { width: 100%; max-width: 464px; }
 }
+
+.card:last-child { margin-bottom: 0; }
