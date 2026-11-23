@@ -3,10 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kirti's Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <title>Kirti Gupta · Product designer</title>
 </head>
-<body>
-  <div class="paper"></div>
+<body data-page="home">
+  <a class="skip" href="#main">Skip to content</a>
+  <nav class="nav" aria-label="Main">
+    <a href="index.html" data-nav="home">Home</a>
+    <a href="index.html#work" data-nav="work">Work</a>
+    <a href="about.html" data-nav="about">About</a>
+    <a href="#" id="resume-link" target="_blank" rel="noopener">Resume</a>
+  </nav>
+
+  <main class="paper" id="main">
+    <div class="wrap">
+      <section class="hero" id="home" aria-label="Introduction">
+        <div class="hero-copy">
+          <h1>Hi, I’m Kirti Gupta, a <span class="accent">product designer.</span></h1>
+          <p>I connect what people need with what a business is trying to do, then <span class="accent">sketch, build and test</span> ideas that bring the two together.</p>
+        </div>
+
+        <div class="portrait-wrap">
+          <figure class="portrait" id="portrait">
+            <img src="assets/kirti.webp" alt="Portrait of Kirti Gupta smiling and holding a red coffee mug" />
+          </figure>
+
+          <div class="peel-cue" id="peel-cue" aria-hidden="true">
+            <span>Peel me</span>
+            <svg width="70" height="54" viewBox="0 0 70 54" fill="none" stroke="#1b1f2b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6C26 2 44 14 52 40"/><path d="M42 36l10 6 4-11"/></svg>
+          </div>
+
+          <div class="note-stack" id="note-stack" role="group" aria-label="Sticky notes about Kirti. Peel each one to read the next.">
+            <button type="button" class="note" aria-label="Note 1 of 4. Peel to read the next."><span class="face"><span>I started out writing code.</span></span></button>
+            <button type="button" class="note"><span class="face"><span>My first internship got me curious about the people who’d use what I built.</span></span></button>
+            <button type="button" class="note"><span class="face"><span>My favourite part now? Taking a problem apart. Half the answer is usually in there.</span></span></button>
+            <button type="button" class="note"><span class="face"><span>I love building things even more when I know who they’ll help and how.</span></span></button>
+          </div>
+          <p class="sr-only" id="peel-status" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <div id="work" class="work-area">
+        <section class="work" aria-labelledby="work-title">
+          <h2 id="work-title">Selected work</h2>
+          <div class="cards" id="cards"></div>
+        </section>
+
+        <section class="process" aria-labelledby="process-title">
+          <h2 class="sr-only" id="process-title">My process</h2>
+          <div class="folder" id="folder">
+            <div class="folder-back"></div>
+            <div class="sheets" id="sheets">
+              <article class="sheet" id="sheet-0" role="tabpanel" aria-labelledby="tab-0" style="--closed-top:100px;--rot:-.7deg">
+                <h3>Understand the domain</h3>
+                <p>Before I draw anything I learn what already exists, who it serves and what the business is trying to do. I read, use the competing products and talk to the people closest to the work, so I know the landscape before I question it.</p>
+              </article>
+              <article class="sheet" id="sheet-1" role="tabpanel" aria-labelledby="tab-1" style="--closed-top:94px;--rot:.5deg">
+                <h3>Ask and observe</h3>
+                <p>I ask simple questions and then stay quiet. I watch someone use a product and look for where they hesitate, work around something or say one thing and do another. What people do tells me more than what they say.</p>
+              </article>
+              <article class="sheet" id="sheet-2" role="tabpanel" aria-labelledby="tab-2" style="--closed-top:104px;--rot:-.3deg">
+                <h3>Find the gap</h3>
+                <p>I put the observations side by side and look for patterns. Then I decide what is worth changing: the gap between what people need and what the business is aiming for, narrowed down to one thing I can act on.</p>
+              </article>
+              <article class="sheet" id="sheet-3" role="tabpanel" aria-labelledby="tab-3" style="--closed-top:97px;--rot:.8deg">
+                <h3>Sketch, build and test</h3>
+                <p>An idea becomes something someone can try: a sketch, then a prototype, then working code. I put it in front of people, watch what they do with it and take what I learn back into the next round.</p>
+              </article>
+            </div>
+            <div class="folder-front" aria-hidden="true"></div>
+            <div class="sheet-tabs" role="tablist" aria-label="Process steps">
+              <button type="button" role="tab" id="tab-0" aria-controls="sheet-0">Understand the domain</button>
+              <button type="button" role="tab" id="tab-1" aria-controls="sheet-1">Ask and observe</button>
+              <button type="button" role="tab" id="tab-2" aria-controls="sheet-2">Find the gap</button>
+              <button type="button" role="tab" id="tab-3" aria-controls="sheet-3">Sketch, build and test</button>
+            </div>
+            <button type="button" class="folder-tab" id="folder-toggle" aria-expanded="false" aria-controls="sheets">
+              <strong>My process</strong>
+              <span id="folder-cue">Open folder ↓</span>
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <footer class="foot">© 2026 Kirti Gupta</footer>
+    </div>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="projects.js"></script>
+  <script src="nav.js"></script>
+  <script src="home.js"></script>
 </body>
 </html>

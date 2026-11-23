@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Case study · Kirti Gupta</title>
+</head>
+<body data-page="work">
+  <a class="skip" href="#main">Skip to content</a>
+  <nav class="nav" aria-label="Main">
+    <a href="index.html" data-nav="home">Home</a>
+    <a href="index.html#work" data-nav="work">Work</a>
+    <a href="about.html" data-nav="about">About</a>
+    <a href="#" id="resume-link" target="_blank" rel="noopener">Resume</a>
+  </nav>
+  <main class="paper" id="main">
+    <div class="wrap case">
+      <a class="back" id="back" href="index.html#work">← Back to work</a>
+      <article id="case"></article>
+    </div>
+  </main>
+  <script src="config.js"></script>
+  <script src="projects.js"></script>
+  <script src="nav.js"></script>
+  <script>
+    (function () {
+      const slug = new URLSearchParams(location.search).get('project');
+      const p = (window.PROJECTS || []).find(x => x.slug === slug);
+      const el = document.getElementById('case');
+      if (!p) { el.innerHTML = '<h1>Project not found</h1><p>That case study doesn’t exist yet.</p>'; return; }
+      document.title = p.title + ' · Kirti Gupta';
+      document.getElementById('back').href = 'index.html#project-' + p.slug;
+      const links = [p.links.live && '<a href="' + p.links.live + '">Live site ↗</a>', p.links.code && '<a href="' + p.links.code + '">Code ↗</a>'].filter(Boolean).join(' ');
+      el.innerHTML =
+        '<h1>' + p.title + '</h1>' +
+        '<p class="lede">' + p.blurb + '</p>' +
+        '<p class="meta"><span>' + p.role + '</span>' + p.tags.map(t => '<span class="tag">' + t + '</span>').join('') + (links ? '<span class="links">' + links + '</span>' : '') + '</p>' +
+        '<img class="hero-img" style="filter:hue-rotate(' + p.hue + 'deg)" src="' + p.image + '" alt="' + p.title + ' project image" />' +
+        p.sections.map(s => '<section><h2>' + s.h + '</h2><p>' + s.p + '</p></section>').join('');
+    })();
+  </script>
+</body>
+</html>
